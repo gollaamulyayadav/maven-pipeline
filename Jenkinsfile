@@ -8,22 +8,22 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Clean Build'
-                bat 'mvn clean compile'
+                echo ''
+                sh 'mvn clean package'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-                bat 'mvn test'
-            }
-        }
-        stage('JaCoCo') {
-            steps {
-                echo 'Code Coverage'
-                jacoco()
-            }
-        }
+        //stage('Test') {
+          //  steps {
+            //    echo 'Testing'
+              //  bat 'mvn test'
+            //}
+        //}
+       // stage('JaCoCo') {
+         //   steps {
+           //     echo 'Code Coverage'
+             //   jacoco()
+            //}
+        //}
         stage('Sonar') {
             steps {
                 echo 'Sonar Scanner'
